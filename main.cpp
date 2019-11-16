@@ -90,11 +90,7 @@ bool findColerance(Image3CH& orginalImg, int x1, int y1, int x2, int y2) {
 	double sum = red + green + blue;
 	if (sum > 0.7)
 		return true;
-
-	//std::cout << sum << std::endl;
-	//cutImg.DrawPoint(cutImg.width() / 2, cutImg.height() / 2, red, green, blue);
-	//cutImg.ShowImage("cut");
-	//kier.ShowImage("res");
+	
 	return false;
 }
 //=================================================================================================//
@@ -114,14 +110,10 @@ bool findColeranceBinaryImage(Image1CH& mImg, int x1, int y1, int x2, int y2) {
 			sumaWag += (trefl(i, j).Red() + trefl(i, j).Green() + trefl(i, j).Blue());
 		}
 	}
-	//cutImg.ShowImage("cut");
 	double colorOut = sume / sumaWag;
 	if (colorOut > 0.7)
 		return true;
 
-	//std::cout << sum << std::endl;
-	//cutImg.DrawPoint(cutImg.width() / 2, cutImg.height() / 2, red, green, blue);
-	//kier.ShowImage("res");
 	return false;
 }
 //==========================================================================
@@ -222,10 +214,6 @@ void calculate(int **tab, int width, int height, Image1CH& outImage, Card* found
 							outImage(i, j).Intensity() = 1;
 						}
 					}
-					//std::cout << "Powierzchnia: " << powierzchnia << std::endl;
-					//std::cout << "Obwod: " << obwod << std::endl;
-					//std::cout << "Punkt min: (" << minCorner.x << "," << minCorner.y << ")" << "    Punkt max: (" <<
-					//	maxCorner.x << "," << maxCorner.y << ")" << std::endl << std::endl;
 					for (int i = 0; i < liczbaKart; i++) {
 						if (foundCards[i].x1 < minCorner.x && foundCards[i].y1 < minCorner.y && foundCards[i].x2 > maxCorner.x
 							&& foundCards[i].y2 > maxCorner.y) {
